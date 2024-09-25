@@ -1,0 +1,7 @@
+fastapi==0.95.0          # FastAPI web framework
+uvicorn==0.21.1          # ASGI server for FastAPI
+psycopg2-binary==2.9.6   # PostgreSQL driver
+SQLAlchemy==2.0.20       # ORM for database management
+pydantic==1.10.2         # Data validation library used by FastAPI
+email-validator==1.2.1   # For validating emails in the contact form
+python-dotenv==1.0.0     # Load environment variables from a .env file
