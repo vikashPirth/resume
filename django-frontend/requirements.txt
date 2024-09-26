@@ -1,5 +1,0 @@
-Django==4.2.5             # Django web framework
-psycopg2-binary==2.9.6    # PostgreSQL driver for Django
-django-environ==0.10.0    # For handling environment variables in Django
-gunicorn==20.1.0          # WSGI HTTP server for Django in production
-whitenoise==6.5.0         # Serve static files efficiently
