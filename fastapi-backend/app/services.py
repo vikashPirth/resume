@@ -6,8 +6,11 @@ class ProfileService:
     @staticmethod
     def get_personal_details() -> PersonalDetails:
         return PersonalDetails(
-            name="Vikash Prithiani",
-            email="vikash.pirthiani@gmail.com"
+            name="Vikash",
+            lastName="Prithian",
+            email="vikash.pirthiani@gmail.com",
+            address="Darmstadt Germany",
+            bio="I am a passionate, analytical and smart software developer. So far I have learned that a positive attitude is the key to achieving anything in software development."
         )
     
     @staticmethod

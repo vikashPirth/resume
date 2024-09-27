@@ -3,7 +3,10 @@ from pydantic import BaseModel
 
 class PersonalDetails(BaseModel):
     name: str
+    lastName:str
     email: str
+    address:str
+    bio:str
 
 
 class Skill(BaseModel):

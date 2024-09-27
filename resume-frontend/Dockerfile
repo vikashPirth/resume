@@ -1,25 +1,14 @@
-# Dockerfile
-FROM node:16-alpine
-
-# Set working directory
-WORKDIR /app
-
-# Copy the package.json and install dependencies
-COPY package*.json ./
-RUN npm install
-
-# Copy the rest of the application code
-COPY . .
-
-# Build the application
-RUN npm run build
-
-# Use an nginx container to serve the frontend
+# Dockerfile for frontend
 FROM nginx:alpine
-COPY --from=0 /app/build /usr/share/nginx/html
 
-# Expose port 80
+# Copy custom Nginx config (optional)
+# COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy the website content into the nginx directory
+COPY dist /usr/share/nginx/html
+
+# Expose port 80 to the outside world
 EXPOSE 80
 
-# Start nginx server
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
