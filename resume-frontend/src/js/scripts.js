@@ -39,7 +39,29 @@ window.addEventListener('DOMContentLoaded', event => {
             console.error('Error fetching personal details:', error);
         }
     }
+        // Fetch personal details from the backend and update the "About" section
+    async function fetchSkills() {
+        try {
+            const response = await fetch('http://localhost:8000/skills');
+            const skills = await response.json();  // This is an array of skill objects
+
+            // Assuming you want to display the skills in a list
+            const skillsContainer = document.getElementById('skills-list');
+            skillsContainer.innerHTML = ''; // Clear previous list if any
+
+            // Loop through the skills array and append each skill to the container
+            skills.forEach(skill => {
+                const skillItem = document.createElement('li');
+                skillItem.textContent = `${skill.name}: ${skill.level}`;  // Assuming skill has 'name' and 'level'
+                skillsContainer.appendChild(skillItem);
+            });
+
+        } catch (error) {
+            console.error('Error fetching skills:', error);
+        }
+    }
 
     fetchPersonalDetails(); // Call the function to fetch and display data
+    fetchSkills();
 
 });
