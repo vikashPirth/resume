@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     <div class="flex-grow-1">
                         <h3 class="mb-0">${experience.position}</h3>
                         <div class="subheading mb-3">${experience.company}</div>
-                        <p>${experience.summary}</p>
+                        <p>${experience.summary.split('\n').join('<br>')}</p>
                     </div>
                     <div class="flex-shrink-0">
                         <span class="text-primary">${experience.duration}</span>
