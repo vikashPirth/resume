@@ -76,8 +76,45 @@ window.addEventListener('DOMContentLoaded', event => {
         }
     }
 
+    async function fetchEducation() {
+        try {
+            const response = await fetch('http://localhost:8000/education');
+            const educationList = await response.json();  // Assuming the API returns an array of education objects
+
+            // Get the container where the education details will be appended
+            const educationContainer = document.getElementById('education-container');
+            educationContainer.innerHTML = '';  // Clear previous content, if any
+
+            // Loop through the education list and create HTML elements for each entry
+            educationList.forEach(education => {
+                // Create a div for each education entry
+                const educationDiv = document.createElement('div');
+                educationDiv.classList.add('d-flex', 'flex-column', 'flex-md-row', 'justify-content-between', 'mb-5');
+
+                // Build the inner content
+                educationDiv.innerHTML = `
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">${education.university}</h3>
+                        <div class="subheading mb-3">${education.degree}</div>
+                        <div>${education.disciplane}</div>
+                        <p>GPA: ${education.gpa}</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-primary">${education.duration}</span>
+                    </div>
+                `;
+
+                // Append the educationDiv to the container
+                educationContainer.appendChild(educationDiv);
+            });
+
+        } catch (error) {
+            console.error('Error fetching education details:', error);
+        }
+    }
 
     fetchPersonalDetails(); // Call the function to fetch and display data
     fetchExperience();
+    fetchEducation();
 
 });

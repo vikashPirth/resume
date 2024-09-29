@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from typing import List
-from app.models import PersonalDetails, Skill, Experience
+from app.models import PersonalDetails, Skill, Experience, Education
 from app.services import ProfileService
 
 router = APIRouter()
@@ -19,3 +19,8 @@ def get_skills():
 @router.get("/experience", response_model=List[Experience])
 def get_experience():
     return ProfileService.get_experience()
+
+
+@router.get("/education", response_model=List[Education])
+def get_experience():
+    return ProfileService.get_education()

@@ -1,5 +1,5 @@
 from typing import List
-from app.models import PersonalDetails, Skill, Experience
+from app.models import PersonalDetails, Skill, Experience, Education
 
 class ProfileService:
     
@@ -51,3 +51,22 @@ class ProfileService:
                 duration="February 2018 - May 2023"
             )
         ] 
+
+    @staticmethod
+    def get_education() -> List[Education]:
+        return[
+           Education(
+               university="Fachhochschule Kiel",
+               degree="Master of Science",
+               disciplane="Information Technology",
+               gpa="2.7",
+               duration="Marach 2015 - February 2018"
+            ),
+           Education(
+               university="National University of Computer & Emerging Sciences",
+               degree="Bachelor of Science",
+               disciplane="Telecommunication",
+               gpa="3.26",
+               duration="August 2007 - July 2011"
+            )
+        ]

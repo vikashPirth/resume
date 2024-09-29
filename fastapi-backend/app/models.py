@@ -18,3 +18,11 @@ class Experience(BaseModel):
     company: str
     summary: str
     duration: str
+
+
+class Education(BaseModel):
+    university: str
+    degree: str
+    disciplane: str
+    gpa: str
+    duration:str
