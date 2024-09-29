@@ -15,5 +15,6 @@ class Skill(BaseModel):
 
 class Experience(BaseModel):
     position: str
-    company: str 
+    company: str
+    summary: str
     duration: str

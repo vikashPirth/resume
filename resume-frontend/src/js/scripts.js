@@ -39,29 +39,45 @@ window.addEventListener('DOMContentLoaded', event => {
             console.error('Error fetching personal details:', error);
         }
     }
-        // Fetch personal details from the backend and update the "About" section
-    async function fetchSkills() {
+
+    async function fetchExperience() {
         try {
-            const response = await fetch('http://localhost:8000/skills');
-            const skills = await response.json();  // This is an array of skill objects
+            const response = await fetch('http://localhost:8000/experience');
+            const experiences = await response.json();  // Assuming the API returns an array of experience objects
 
-            // Assuming you want to display the skills in a list
-            const skillsContainer = document.getElementById('skills-list');
-            skillsContainer.innerHTML = ''; // Clear previous list if any
+            // Get the container where experiences will be appended
+            const experienceContainer = document.getElementById('experience-container');
+            experienceContainer.innerHTML = '';  // Clear previous content, if any
 
-            // Loop through the skills array and append each skill to the container
-            skills.forEach(skill => {
-                const skillItem = document.createElement('li');
-                skillItem.textContent = `${skill.name}: ${skill.level}`;  // Assuming skill has 'name' and 'level'
-                skillsContainer.appendChild(skillItem);
+            // Loop through the experience list and create HTML elements for each experience
+            experiences.forEach(experience => {
+                // Create a div for each experience
+                const experienceDiv = document.createElement('div');
+                experienceDiv.classList.add('d-flex', 'flex-column', 'flex-md-row', 'justify-content-between', 'mb-5');
+
+                // Build the inner content
+                experienceDiv.innerHTML = `
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">${experience.position}</h3>
+                        <div class="subheading mb-3">${experience.company}</div>
+                        <p>${experience.summary}</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-primary">${experience.duration}</span>
+                    </div>
+                `;
+
+                // Append the experienceDiv to the container
+                experienceContainer.appendChild(experienceDiv);
             });
 
         } catch (error) {
-            console.error('Error fetching skills:', error);
+            console.error('Error fetching experience details:', error);
         }
     }
 
+
     fetchPersonalDetails(); // Call the function to fetch and display data
-    fetchSkills();
+    fetchExperience();
 
 });
