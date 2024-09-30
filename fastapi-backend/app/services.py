@@ -1,5 +1,5 @@
 from typing import List
-from app.models import PersonalDetails, Skill, Experience, Education
+from app.models import PersonalDetails, Experience, Education
 
 class ProfileService:
     
