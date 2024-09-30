@@ -11,11 +11,6 @@ def get_personal_details():
     return ProfileService.get_personal_details()
 
 
-@router.get("/skills", response_model=List[Skill])
-def get_skills():
-    return ProfileService.get_skills()
-
-
 @router.get("/experience", response_model=List[Experience])
 def get_experience():
     return ProfileService.get_experience()

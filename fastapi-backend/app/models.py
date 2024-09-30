@@ -9,10 +9,6 @@ class PersonalDetails(BaseModel):
     bio:str
 
 
-class Skill(BaseModel):
-    name: str
-
-
 class Experience(BaseModel):
     position: str
     company: str

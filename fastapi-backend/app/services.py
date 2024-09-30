@@ -14,15 +14,6 @@ class ProfileService:
         )
     
     @staticmethod
-    def get_skills() -> List[Skill]:
-        return [
-            Skill(name="Python"),
-            Skill(name="Docker"),
-            Skill(name="Kubernetes"),
-            Skill(name="Fast Api")
-        ]
-    
-    @staticmethod
     def get_experience() -> List[Experience]:
         return[
            Experience(
